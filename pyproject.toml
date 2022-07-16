@@ -1,10 +1,10 @@
 [project]
-name = "meshgraph_ianovir"
+name = "meshgraph"
 version = "0.0.1"
 authors = [
   { name="Sebastiano Campisi", email="ianovir@ianovir.com" },
 ]
-description = "3D mesh to graph conversion"
+description = "3D mesh to graph"
 readme = "README.md"
 license = { file="LICENSE" }
 requires-python = ">=3.7"
