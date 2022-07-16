@@ -1,4 +1,4 @@
-<div style="text-align:center"><img src="./media/meshgraph_icon.png" height="200"/></div>
+<div style="text-align:center"><img src="./.media/meshgraph_icon.png" height="200"/></div>
 
 # Intro
 This project is born to easily conduct static analysis on 3D mesh geometries. Meshgraph allows you to convert 3D objects
