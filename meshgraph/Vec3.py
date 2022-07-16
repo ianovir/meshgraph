@@ -23,6 +23,8 @@ class Vec3:
 
     """
 
+    __slots__ = ('x', 'y', 'z')
+
     def __init__(self, x: float, y: float, z: float):
         self.x = x
         self.y = y
@@ -38,3 +40,9 @@ class Vec3:
         return self.x == other.x \
                and self.y == other.y \
                and self.z == other.z
+
+    def __str__(self):
+        return "[" + str(self.x) \
+            + "," + str(self.y) \
+            + "," + str(self.z)\
+            + "]"

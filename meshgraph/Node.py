@@ -21,21 +21,28 @@ class Node:
 
     """
 
-    def __init__(self, x, y, z):
+    __slots__ = ('pos', '_index', 'neighbors')
+
+    def __init__(self, x, y, z, index=None):
         self.pos = Vec3(x, y, z)
-        self.index = -1
+        self._index = index
         self.neighbors = set()
+
+    @property
+    def index(self) -> int:
+        return self._index
+
+    @index.setter
+    def index(self, value):
+        self._index = value
 
     def add_neighbor(self, node: 'Node'):
         """Add new Node instance to neighbors"""
         self.neighbors.add(node)
 
     def __str__(self):
-        return "V" + str(self.index) \
-            + "[" + str(self.pos.x) \
-            + "," + str(self.pos.y) \
-            + "," + str(self.pos.z)\
-            + "]"
+        return "V" + str(self._index) \
+            + str(self.pos)
 
     def __repr__(self):
         return str(self)

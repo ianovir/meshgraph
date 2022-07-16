@@ -59,6 +59,35 @@ class TestObjGraphLoading(unittest.TestCase):
 		assert graph.nodes[6].pos == Vec3(-2, -2, -6)
 		assert graph.nodes[7].pos == Vec3(-2, 2, 0)
 
+	def test_nodes_coordinates_with_noisy_input(self):
+		obj = "v        1 1 0\n" + \
+			"v  1 -1 3\n" + \
+			"v -1 -1 -3\n" + \
+			"v -1 1 0\n" + \
+			"v 2 2 0\n" + \
+			"v  2 -2 6\n" + \
+			"g2 -2 6\n" + \
+			"v -2 -2 -6\n" + \
+			"v -2 2 0\n" + \
+			"vn -2 2 0\n" + \
+			"vn -2 2    0\n" + \
+			"vn -2 2 0\n" + \
+			"vn -2 2 0\n" + \
+			"f        1 2 3 4\n" + \
+			"f 5 6   7 8"
+
+		graph = ObjLoader.load_graph_from_string(obj)
+
+		assert len(graph.nodes) == 8
+		assert graph.nodes[0].pos == Vec3(1, 1, 0)
+		assert graph.nodes[1].pos == Vec3(1, -1, 3)
+		assert graph.nodes[2].pos == Vec3(-1, -1, -3)
+		assert graph.nodes[3].pos == Vec3(-1, 1, 0)
+		assert graph.nodes[4].pos == Vec3(2, 2, 0)
+		assert graph.nodes[5].pos == Vec3(2, -2, 6)
+		assert graph.nodes[6].pos == Vec3(-2, -2, -6)
+		assert graph.nodes[7].pos == Vec3(-2, 2, 0)
+
 	def test_nodes_indexes(self):
 		obj = "v 1 1 0\n" + \
 			"v 1 -1 3\n" + \
@@ -82,7 +111,6 @@ class TestObjGraphLoading(unittest.TestCase):
 		assert graph.nodes[5].index == 5
 		assert graph.nodes[6].index == 6
 		assert graph.nodes[7].index == 7
-
 
 	def test_nodes_access_from_graph(self):
 		obj = "v 1 1 0\n" + \

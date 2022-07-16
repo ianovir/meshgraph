@@ -1,7 +1,8 @@
 <div style="text-align:center"><img src="./media/meshgraph_icon.png" height="200"/></div>
 
 # Intro
-This project was created to easily conduct static analysis on 3D mesh geometries. Meshgraph allows you to convert 3D objects into graphs and thus perform algorithms on them.
+This project is born to easily conduct static analysis on 3D mesh geometries. Meshgraph allows you to convert 3D objects
+into graphs and thus perform algorithms on them.
 
 
 # How to use Meshgraph
@@ -33,6 +34,8 @@ graph = ObjLoader.load_graph_from_string(obj_string)
 Nodes can be accessed using:
 
 ```python
+from meshgraph.Node import Node
+#...
 graph_nodes = graph.nodes
 #Accessing by index:
 node0 = graph.nodes[0]
@@ -42,7 +45,7 @@ node1 = graph.get_node(1)
 
 Access a node's position using:
 ```python
-node0_pos = node0.pos
+print(node0.pos)
 ```
 
 Get a distance between two nodes `node0` and `node1` using:
